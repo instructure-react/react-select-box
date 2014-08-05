@@ -1,0 +1,40 @@
+{
+  "name": "react-select-box",
+  "version": "0.0.0",
+  "description": "An accessible select box component for React.",
+  "main": "lib/select-box",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brentburgoyne/react-select-box.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "select"
+  ],
+  "author": "Brent Burgoyne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brentburgoyne/react-select-box/issues"
+  },
+  "homepage": "https://github.com/brentburgoyne/react-select-box",
+  "peerDependencies": {
+    "react": "^0.11.1"
+  }
+  "devDependencies": {
+    "jest": "^0.1.37",
+    "react": "^0.11.1",
+    "react-tools": "^0.11.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/test/util/preprocessor.js",
+    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+    "testPathDirs": ["<rootDir>/test"]
+  }
+}
