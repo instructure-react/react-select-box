@@ -10,6 +10,11 @@
   text-align: left;
 }
 
+.react-select-box:focus {
+  outline: 0;
+  box-shadow: 0 0 4px #0493D1;
+}
+
 .react-select-box:before {
   content: ' ';
   z-index: 1;
@@ -68,6 +73,8 @@
   background-color: #fff;
   text-indent: -9999em;
   z-index: 2;
+  border: none;
+
 }
 .react-select-box-clear:before {
   content: '×';
@@ -124,8 +131,9 @@
   color: #CBD2D7;
 }
 
-.react-select-box-option-focused {
+.react-select-box-option:focus {
   color: #0493D1;
+  outline: 0;
   background-color: #DDE2E5;
 }
 
