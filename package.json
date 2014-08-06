@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "broccoli serve"
   },
   "repository": {
     "type": "git",
@@ -26,15 +27,24 @@
   "homepage": "https://github.com/brentburgoyne/react-select-box",
   "peerDependencies": {
     "react": "^0.11.1"
-  }
+  },
   "devDependencies": {
+    "broccoli": "^0.12.3",
+    "broccoli-browserify": "^0.1.0",
+    "broccoli-cli": "0.0.1",
+    "broccoli-react": "^0.5.0",
     "jest": "^0.1.37",
+    "jest-cli": "^0.1.18",
     "react": "^0.11.1",
     "react-tools": "^0.11.1"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/test/util/preprocessor.js",
-    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
-    "testPathDirs": ["<rootDir>/test"]
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ],
+    "testPathDirs": [
+      "<rootDir>/test"
+    ]
   }
 }
