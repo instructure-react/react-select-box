@@ -12,9 +12,7 @@ module.exports = function(config) {
     webpack: {
       cache: true,
       module: {
-        loaders: [
-          { test: /\.js$/, loader: 'jsx-loader'}
-        ]
+        loaders: []
       }
     },
     webpackServer: {
