@@ -1,5 +1,7 @@
 # React Select Box
 
+[![Build Status](https://travis-ci.org/instructure/react-select-box.svg?branch=master)](https://travis-ci.org/instructure/react-select-box)
+
 An accessible select box component for React.
 
 ## Installation
@@ -11,7 +13,7 @@ $ npm install react-select-box --save
 ## Development
 
 ```bash
-$ git clone git@github.com:brentburgoyne/react-select-box.git
+$ git clone git@github.com:instructure/react-select-box.git
 $ npm install
 ```
 
