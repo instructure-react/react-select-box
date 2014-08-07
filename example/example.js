@@ -1,5 +1,6 @@
 var React = require('react')
 var SelectBox = require('../lib/select-box')
+var MultiSelect = require('../lib/multi-select')
 
 var colors = [
   { value: 'red', label: 'Red' },
@@ -13,11 +14,15 @@ var colors = [
 var Example = React.createClass({displayName: 'Example',
   getInitialState: function () {
     return {
-      color: null
+      color: null,
+      colors: []
     }
   },
   handleChange: function (color) {
     this.setState({ color: color })
+  },
+  handleMultiChange: function (colors) {
+    this.setState({ colors: colors })
   },
   render: function () {
     return(
@@ -27,6 +32,13 @@ var Example = React.createClass({displayName: 'Example',
           label: "Favorite Color",
           onChange: this.handleChange,
           value: this.state.color,
+          options: colors}
+        ),
+        React.DOM.h1(null, "Multi Select Example"),
+        MultiSelect({
+          label: "Favorite Colors",
+          onChange: this.handleMultiChange,
+          value: this.state.colors,
           options: colors}
         )
       )
