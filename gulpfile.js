@@ -1,18 +1,11 @@
 var gulp = require('gulp')
-var react = require('gulp-react')
 var browserify = require('browserify')
 var source = require('vinyl-source-stream')
 var connect = require('gulp-connect')
 
-gulp.task('jsx', function() {
-  return gulp.src(['example/**/*.js', 'lib/**/*.js'])
-    .pipe(react())
-    .pipe(gulp.dest('tmp/jsx'))
-})
-
-gulp.task('browserify', ['jsx'], function() {
+gulp.task('browserify', function() {
   return browserify({
-      entries: ['./tmp/jsx/example.js'],
+      entries: ['./example/example.js'],
       debug: true
     })
     .bundle()
@@ -38,4 +31,3 @@ gulp.task('serve', ['static', 'browserify', 'server'], function() {
   gulp.watch(['example/**/*'], ['static', 'browserify'])
   gulp.watch(['lib/**/*'], ['browserify'])
 })
-

@@ -1,7 +1,5 @@
-/** @jsx React.DOM */
-
 var React = require('react')
-var SelectBox = require('./select-box')
+var SelectBox = require('../lib/select-box')
 
 var colors = [
   { value: 'red', label: 'Red' },
@@ -12,7 +10,7 @@ var colors = [
   { value: 'greenish', label: 'Light greenish with a little bit of yellow' }
 ]
 
-var Example = React.createClass({
+var Example = React.createClass({displayName: 'Example',
   getInitialState: function () {
     return {
       color: null
@@ -23,17 +21,17 @@ var Example = React.createClass({
   },
   render: function () {
     return(
-      <div className="example">
-        <h1>Select Box Example</h1>
-        <SelectBox
-          label="Favorite Color"
-          onChange={this.handleChange}
-          value={this.state.color}
-          options={colors}
-        />
-      </div>
+      React.DOM.div({className: "example"},
+        React.DOM.h1(null, "Select Box Example"),
+        SelectBox({
+          label: "Favorite Color",
+          onChange: this.handleChange,
+          value: this.state.color,
+          options: colors}
+        )
+      )
     )
   }
 })
 
-React.renderComponent(<Example />, document.body)
+React.renderComponent(Example(null), document.body)
