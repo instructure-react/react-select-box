@@ -4,6 +4,11 @@
 
 An accessible select box component for React.
 
+## Demo
+
+[http://instructure.github.io/react-select-box/](http://instructure.github.io/react-select-box/)
+
+
 ## Installation
 
 ```bash
