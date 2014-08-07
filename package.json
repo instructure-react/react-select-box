@@ -1,6 +1,6 @@
 {
   "name": "react-select-box",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An accessible select box component for React.",
   "main": "lib/select-box",
   "directories": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brentburgoyne/react-select-box.git"
+    "url": "https://github.com/instructure/react-select-box.git"
   },
   "keywords": [
     "react",
@@ -22,9 +22,9 @@
   "author": "Brent Burgoyne",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brentburgoyne/react-select-box/issues"
+    "url": "https://github.com/instructure/react-select-box/issues"
   },
-  "homepage": "https://github.com/brentburgoyne/react-select-box",
+  "homepage": "https://github.com/instructure/react-select-box",
   "peerDependencies": {
     "react": "^0.11.1"
   },
