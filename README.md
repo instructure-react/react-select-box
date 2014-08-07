@@ -1,6 +1,6 @@
 # React Select Box
 
-[![Build Status](https://travis-ci.org/instructure/react-select-box.svg?branch=master)](https://travis-ci.org/instructure/react-select-box)
+[![Build Status](https://travis-ci.org/instructure/react-select-box.svg?branch=master)](https://travis-ci.org/instructure/react-select-box) 
 
 An accessible select box component for React.
 
