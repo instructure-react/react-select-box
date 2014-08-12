@@ -126,6 +126,7 @@
 
 .react-select-box .react-select-box-option:hover {
   color: #0493D1;
+  background-color: #f4f4f4;
 }
 
 .react-select-box-option-selected {
@@ -136,9 +137,33 @@
   color: #1F3344;
 }
 
-.react-select-box-option:focus {
+.react-select-box-option:focus,
+.react-select-box-option-focused {
   color: #0493D1;
   outline: 0;
   background-color: #DDE2E5;
+}
+
+.react-select-box-apply {
+  color: #0493D1;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.react-select-box-apply:hover,
+.react-select-box-apply:focus {
+  text-decoration: underline;
+}
+
+.react-select-box-apply:disabled {
+  color: #CBD2D7;
 }
 
