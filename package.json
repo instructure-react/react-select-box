@@ -1,6 +1,6 @@
 {
   "name": "react-select-box",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "An accessible select box component for React.",
   "main": "index.js",
   "directories": {
