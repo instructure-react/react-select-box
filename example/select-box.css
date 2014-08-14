@@ -123,6 +123,7 @@
   margin: 0;
   cursor: pointer;
   display: block;
+  line-height: 1.2;
 }
 
 .react-select-box .react-select-box-option:hover {
@@ -133,6 +134,33 @@
 .react-select-box-option-selected {
   color: #CBD2D7;
 }
+
+.react-select-box-multi .react-select-box-option {
+  padding-left: 42px;
+  position: relative;
+}
+
+.react-select-box-multi .react-select-box-option:before {
+  content: ' ';
+  position: absolute;
+  line-height: 1;
+  text-align: center;
+  left: 20px;
+  top: 9px;
+  border-radius: 3px;
+  height: 12px;
+  width: 12px;
+  margin-right: 10px;
+  border: 1px solid #7B8E9B;
+  background: #f9f9f9;
+  vertical-align: middle;
+}
+
+.react-select-box-multi .react-select-box-option-selected:before {
+  content: '✓';
+
+}
+
 
 .react-select-box-multi .react-select-box-option-selected {
   color: #1F3344;
