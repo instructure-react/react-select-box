@@ -49,10 +49,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #0493D1;
 }
 
-.react-select-box-label-active {
-  color: #0493D1;
+.react-select-box-empty .react-select-box-label {
+  color: #7B8E9B;
 }
 
 .react-select-box-click-outside-layer {
@@ -144,7 +145,7 @@
   background-color: #DDE2E5;
 }
 
-.react-select-box-apply {
+.react-select-box-close {
   color: #0493D1;
   text-transform: uppercase;
   background-color: transparent;
@@ -158,12 +159,12 @@
   outline: none;
 }
 
-.react-select-box-apply:hover,
-.react-select-box-apply:focus {
+.react-select-box-close:hover,
+.react-select-box-close:focus {
   text-decoration: underline;
 }
 
-.react-select-box-apply:disabled {
+.react-select-box-empty .react-select-box-close {
   color: #CBD2D7;
 }
 
