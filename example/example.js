@@ -24,6 +24,7 @@ var Example = React.createClass({displayName: 'Example',
         SelectBox(
           {
             label: "Favorite Color",
+            className: 'my-example-select-box',
             onChange: this.handleChange,
             value: this.state.color
           },
