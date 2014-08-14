@@ -115,7 +115,12 @@
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.react-select-box-options-list {
   list-style: none outside;
+  margin: 0;
+  padding: 0;
 }
 
 .react-select-box-option {
@@ -158,7 +163,6 @@
 
 .react-select-box-multi .react-select-box-option-selected:before {
   content: '✓';
-
 }
 
 
