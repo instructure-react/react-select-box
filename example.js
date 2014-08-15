@@ -1,33 +1,53 @@
 var React = require('react')
 var SelectBox = require('react-select-box')
 
-var colors = [
-  { value: 'red', label: 'Red' },
-  { value: 'green', label: 'Green' },
-  { value: 'blue', label: 'Blue' },
-  { value: 'black', label: 'Black' },
-  { value: 'orange', label: 'Orange' },
-  { value: 'greenish', label: 'Light greenish with a little bit of yellow' }
-]
+React.DOM.option({value: 'red'}, 'Red')
 
 var Example = React.createClass({displayName: 'Example',
   getInitialState: function () {
     return {
-      color: null
+      color: null,
+      colors: []
     }
   },
   handleChange: function (color) {
     this.setState({ color: color })
   },
+  handleMultiChange: function (colors) {
+    this.setState({ colors: colors })
+  },
   render: function () {
     return(
       React.DOM.div({className: "example"},
         React.DOM.h1(null, "Select Box Example"),
-        SelectBox({
-          label: "Favorite Color",
-          onChange: this.handleChange,
-          value: this.state.color,
-          options: colors}
+        SelectBox(
+          {
+            label: "Favorite Color",
+            className: 'my-example-select-box',
+            onChange: this.handleChange,
+            value: this.state.color
+          },
+          React.DOM.option({value: 'red'}, 'Red'),
+          React.DOM.option({value: 'green'}, 'Green'),
+          React.DOM.option({value: 'blue'}, 'Blue'),
+          React.DOM.option({value: 'black'}, 'Black'),
+          React.DOM.option({value: 'orange'}, 'Orange'),
+          React.DOM.option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
+        ),
+        React.DOM.h1(null, "Multi Select Example"),
+        SelectBox(
+          {
+            label: "Favorite Colors",
+            onChange: this.handleMultiChange,
+            value: this.state.colors,
+            multiple: true
+          },
+          React.DOM.option({value: 'red'}, 'Red'),
+          React.DOM.option({value: 'green'}, 'Green'),
+          React.DOM.option({value: 'blue'}, 'Blue'),
+          React.DOM.option({value: 'black'}, 'Black'),
+          React.DOM.option({value: 'orange'}, 'Orange'),
+          React.DOM.option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
         )
       )
     )
