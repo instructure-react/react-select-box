@@ -54,4 +54,4 @@ var Example = React.createClass({displayName: 'Example',
   }
 })
 
-React.renderComponent(Example(null), document.body)
+React.renderComponent(Example(null), document.getElementById('application'))
