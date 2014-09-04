@@ -1,6 +1,5 @@
 var React = require('react')
 var SelectBox = require('../lib/select-box')
-var MultiSelect = require('../lib/multi-select')
 
 React.DOM.option({value: 'red'}, 'Red')
 
