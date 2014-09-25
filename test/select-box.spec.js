@@ -107,6 +107,46 @@ describe('SelectBox component', function () {
     })
   })
 
+  describe("Toggle options list open/closed when select box is clicked", function() {
+    var selectBoxElement
 
+    beforeEach(function() {
+        selectBoxElement = TestUtils.findRenderedDOMComponentWithClass(
+          selectBox,
+          'react-select-box'
+        )
+    })
+
+    it('should close options list when select box is clicked on (if options list is already open)', function(done) {
+      // Start with open options list
+      selectBox.setState({ open: true }, function () {
+        // Simulate a click on the select box (element with class tag `react-select-box`)
+        TestUtils.Simulate.click(selectBoxElement)
+        // Re-render component (to ensure state change occured)
+        selectBox.forceUpdate(function() {
+          // Check if it is closed
+          selectBox.state.open.should.equal(false)
+          // End test
+          done()
+        })
+      })
+    })
+
+    it('should open options list when select box is clicked on (if options list is closed)', function(done) {
+      // Start with closed options list
+      selectBox.setState({ open: false }, function () {
+        // Simulate a click on the select box (element with class tag `react-select-box`)
+        TestUtils.Simulate.click(selectBoxElement)
+        // Re-render component (to ensure state change occured)
+        selectBox.forceUpdate(function() {
+          // Check if it is open
+          selectBox.state.open.should.equal(true)
+          // End test
+          done()
+        })
+      })
+    })
+
+  })
 
 })
