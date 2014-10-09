@@ -1,13 +1,20 @@
-.react-select-box {
-  padding: 17px 0;
+.react-select-box-container {
+  position: relative;
+  width: 240px;
+  display: inline-block;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
-  display: inline-block;
-  width: 240px;
-  position: relative;
-  cursor: pointer;
   text-align: left;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+.react-select-box {
+  padding: 15px 0;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
 }
 
 .react-select-box:focus {
@@ -38,7 +45,7 @@
 
 .react-select-box-label,
 .react-select-box-option {
-  line-height: 12px;
+  line-height: 16px;
   font-size: 12px;
   font-weight: bold;
   color: #7B8E9B;
@@ -104,6 +111,10 @@
   background-color: #0493D1;
 }
 
+.react-select-box-hidden {
+  display: none
+}
+
 .react-select-box-options {
   margin: 2px 0 0;
   position: absolute;
@@ -129,9 +140,10 @@
   cursor: pointer;
   display: block;
   line-height: 1.2;
+  text-decoration: none;
 }
 
-.react-select-box .react-select-box-option:hover {
+.react-select-box-option:hover {
   color: #0493D1;
   background-color: #f4f4f4;
 }
