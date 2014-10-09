@@ -71,18 +71,19 @@ describe('SelectBox component', function () {
     })
   })
 
-  it('should not show options when state.open is false', function (done) {
+  it('should add hidden class to options when state.open is false', function (done) {
     selectBox.setState({ open: false }, function () {
       var options = TestUtils.scryRenderedDOMComponentsWithClass(
         selectBox,
         'react-select-box-options'
       )
-      options.should.have.length(0)
+      options.should.have.length(1)
+      options[0].getDOMNode().className.should.match(/hidden/)
       done()
     })
   })
 
-  it('should show options when state.open is true', function (done) {
+  it('should render options', function (done) {
     selectBox.setState({ open: true }, function () {
       var options = TestUtils.scryRenderedDOMComponentsWithClass(
         selectBox,
