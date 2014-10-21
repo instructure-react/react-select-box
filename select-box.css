@@ -1,13 +1,20 @@
-.react-select-box {
-  padding: 17px 0;
+.react-select-box-container {
+  position: relative;
+  width: 240px;
+  display: inline-block;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
-  display: inline-block;
-  width: 240px;
-  position: relative;
-  cursor: pointer;
   text-align: left;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+.react-select-box {
+  padding: 15px 0;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
 }
 
 .react-select-box:focus {
@@ -38,7 +45,7 @@
 
 .react-select-box-label,
 .react-select-box-option {
-  line-height: 12px;
+  line-height: 16px;
   font-size: 12px;
   font-weight: bold;
   color: #7B8E9B;
@@ -49,10 +56,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #0493D1;
 }
 
-.react-select-box-label-active {
-  color: #0493D1;
+.react-select-box-empty .react-select-box-label {
+  color: #7B8E9B;
 }
 
 .react-select-box-click-outside-layer {
@@ -103,6 +111,10 @@
   background-color: #0493D1;
 }
 
+.react-select-box-hidden {
+  display: none
+}
+
 .react-select-box-options {
   margin: 2px 0 0;
   position: absolute;
@@ -114,7 +126,12 @@
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.react-select-box-options-list {
   list-style: none outside;
+  margin: 0;
+  padding: 0;
 }
 
 .react-select-box-option {
@@ -122,23 +139,76 @@
   margin: 0;
   cursor: pointer;
   display: block;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.react-select-box .react-select-box-option:hover {
+.react-select-box-option:hover {
   color: #0493D1;
+  background-color: #f4f4f4;
 }
 
 .react-select-box-option-selected {
   color: #CBD2D7;
 }
 
+.react-select-box-multi .react-select-box-option {
+  padding-left: 42px;
+  position: relative;
+}
+
+.react-select-box-multi .react-select-box-option:before {
+  content: ' ';
+  position: absolute;
+  line-height: 1;
+  text-align: center;
+  left: 20px;
+  top: 9px;
+  border-radius: 3px;
+  height: 12px;
+  width: 12px;
+  margin-right: 10px;
+  border: 1px solid #7B8E9B;
+  background: #f9f9f9;
+  vertical-align: middle;
+}
+
+.react-select-box-multi .react-select-box-option-selected:before {
+  content: '✓';
+}
+
+
 .react-select-box-multi .react-select-box-option-selected {
   color: #1F3344;
 }
 
-.react-select-box-option:focus {
+.react-select-box-option:focus,
+.react-select-box-option-focused {
   color: #0493D1;
   outline: 0;
   background-color: #DDE2E5;
+}
+
+.react-select-box-close {
+  color: #0493D1;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  padding: 5px 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.react-select-box-close:hover,
+.react-select-box-close:focus {
+  text-decoration: underline;
+}
+
+.react-select-box-empty .react-select-box-close {
+  color: #CBD2D7;
 }
 
