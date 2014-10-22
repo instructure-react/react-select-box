@@ -212,3 +212,7 @@
   color: #CBD2D7;
 }
 
+.react-select-box-native {
+  position: absolute;
+  left: -99999em;
+}
