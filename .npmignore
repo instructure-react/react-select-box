@@ -2,3 +2,7 @@ examples
 test
 karma.conf.js
 gulpfile.js
+*.es6.js
+.*
+karma.conf.js
+webpack.config.js

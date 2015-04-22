@@ -1,59 +1,69 @@
-var React = require('react')
-var SelectBox = React.createFactory(require('../lib/select-box'))
+import React from 'react'
+import SelectBox from '../lib/select-box.es6'
 
-var div = React.createElement.bind(null,'div')
-var option = React.createElement.bind(null,'option')
-var h1 = React.createElement.bind(null,'h1')
+require('../select-box.css')
+require('./example.css')
 
-var Example = React.createFactory(React.createClass({displayName: 'Example',
-  getInitialState: function () {
+var Example = React.createClass({
+
+  displayName: 'Example',
+
+  getInitialState () {
     return {
       color: null,
       colors: []
     }
   },
-  handleChange: function (color) {
+
+  handleChange (color) {
     this.setState({ color: color })
   },
-  handleMultiChange: function (colors) {
+
+  handleMultiChange (colors) {
     this.setState({ colors: colors })
   },
-  render: function () {
-    return(
-      div({className: "example"},
-        h1(null, "Select Box Example"),
-        SelectBox(
-          {
-            label: "Favorite Color",
-            className: 'my-example-select-box',
-            onChange: this.handleChange,
-            value: this.state.color
-          },
-          option({key: 'red', value: 'red'}, 'Red'),
-          option({value: 'green'}, 'Green'),
-          option({value: 'blue'}, 'Blue'),
-          option({value: 'black'}, 'Black'),
-          option({value: 'orange'}, 'Orange'),
-          option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
-        ),
-        h1(null, "Multi Select Example"),
-        SelectBox(
-          {
-            label: "Favorite Colors",
-            onChange: this.handleMultiChange,
-            value: this.state.colors,
-            multiple: true
-          },
-          option({value: 'red'}, 'Red'),
-          option({value: 'green'}, 'Green'),
-          option({value: 'blue'}, 'Blue'),
-          option({value: 'black'}, 'Black'),
-          option({value: 'orange'}, 'Orange'),
-          option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
-        )
-      )
+
+  render () {
+    return (
+      <div className='example'>
+        <select>
+          <option></option>
+          <option>1</option>
+          <option>2</option>
+        </select>
+
+        <h1>Select Box Example</h1>
+
+        <SelectBox
+            label="Favorite Color"
+            className="my-example-select-box"
+            onChange={this.handleChange}
+            value={this.state.color}>
+          <option value='red'>Red</option>
+          <option value='green'>Green</option>
+          <option value='blue'>Blue</option>
+          <option value='black'>Black</option>
+          <option value='orange'>Orange</option>
+          <option value='greenish'>Light greenish with a little bit of yellow</option>
+        </SelectBox>
+
+        <h1>Multi Select Example</h1>
+        <SelectBox
+            label="Favorite Color"
+            className="my-example-select-box"
+            onChange={this.handleMultiChange}
+            value={this.state.colors}
+            multiple={true}>
+          <option value='red'>Red</option>
+          <option value='green'>Green</option>
+          <option value='blue'>Blue</option>
+          <option value='black'>Black</option>
+          <option value='orange'>Orange</option>
+          <option value='greenish'>Light greenish with a little bit of yellow</option>
+        </SelectBox>
+      </div>
     )
   }
-}))
+})
 
-React.render(Example(null), document.body)
+React.render(<Example/>, document.getElementById('example'))

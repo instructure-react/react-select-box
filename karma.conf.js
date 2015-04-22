@@ -1,3 +1,5 @@
+var webpackConfig = require('./webpack.config')
+
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -12,8 +14,8 @@ module.exports = function(config) {
     webpack: {
       cache: true,
       module: {
-        loaders: []
-      }
+        loaders: webpackConfig.module.loaders
+      },
     },
     webpackServer: {
       stats: {

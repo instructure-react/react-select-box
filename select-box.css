@@ -1,4 +1,4 @@
-.react-select-box-container {
+.ReactSelectBox3-container {
   position: relative;
   width: 240px;
   display: inline-block;
@@ -7,7 +7,8 @@
   text-align: left;
   box-shadow: 0 0 2px rgba(0, 0, 0, .3);
 }
-.react-select-box {
+
+.ReactSelectBox3 {
   padding: 15px 0;
   display: inline-block;
   cursor: pointer;
@@ -17,12 +18,17 @@
   background-color: transparent;
 }
 
-.react-select-box:focus {
-  outline: 0;
-  box-shadow: 0 0 4px #0493D1;
+.ReactSelectBox3:focus,
+.ReactSelectBox3--focus {
+  border-radius: 4px;
+  -moz-outline: none;
+  outline: none;
+  -webkit-box-shadow: 0px 0px 3px 2px #0099E0;
+  -moz-box-shadow: 0px 0px 3px 2px #0099E0;
+  box-shadow: 0px 0px 2px 3px #0099E0;
 }
 
-.react-select-box:before {
+.ReactSelectBox3:before {
   content: ' ';
   z-index: 1;
   position: absolute;
@@ -32,7 +38,7 @@
   border-left: 1px solid #CBD2D7;
 }
 
-.react-select-box:after {
+.ReactSelectBox3--collapsed::after {
   content: ' ';
   position: absolute;
   z-index: 1;
@@ -43,15 +49,27 @@
   border-right: 5px solid transparent;
 }
 
-.react-select-box-label,
-.react-select-box-option {
+.ReactSelectBox3--expanded::after {
+  content: ' ';
+  position: absolute;
+  z-index: 1;
+  top: 23px;
+  right: 13px;
+  border-bottom: 6px solid #7B8E9B;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+
+.ReactSelectBox3-label,
+.ReactSelectBox3-option {
   line-height: 16px;
   font-size: 12px;
   font-weight: bold;
   color: #7B8E9B;
 }
 
-.react-select-box-label {
+.ReactSelectBox3-label {
   padding: 0 40px 0 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -59,11 +77,15 @@
   color: #0493D1;
 }
 
-.react-select-box-empty .react-select-box-label {
+.ReactSelectBox3-option:focus {
+  outline: none;
+}
+
+.ReactSelectBox3-empty .ReactSelectBox3-label {
   color: #7B8E9B;
 }
 
-.react-select-box-click-outside-layer {
+.ReactSelectBox3-click-outside-layer {
   position: fixed;
   top: 0;
   left: 0;
@@ -72,7 +94,7 @@
   z-index: 2;
 }
 
-.react-select-box-clear {
+.ReactSelectBox3-clear {
   position: absolute;
   top: 15px;
   right: 0;
@@ -84,7 +106,7 @@
   border: none;
 
 }
-.react-select-box-clear:before {
+.ReactSelectBox3-clear:before {
   content: '×';
   position: absolute;
   top: 2px;
@@ -101,21 +123,20 @@
   text-align: center;
 }
 
-.react-select-box-clear:hover,
-.react-select-box-clear:focus {
+.ReactSelectBox3-clear:hover {
   outline: 0;
 }
 
-.react-select-box-clear:hover:before,
-.react-select-box-clear:focus:before {
+.ReactSelectBox3-clear:hover:before,
+.ReactSelectBox3-clear:focus:before {
   background-color: #0493D1;
 }
 
-.react-select-box-hidden {
+.ReactSelectBox3-hidden {
   display: none
 }
 
-.react-select-box-options {
+.ReactSelectBox3-options {
   margin: 2px 0 0;
   position: absolute;
   padding: 10px 0;
@@ -128,13 +149,13 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, .3);
 }
 
-.react-select-box-options-list {
+.ReactSelectBox3-options-list {
   list-style: none outside;
   margin: 0;
   padding: 0;
 }
 
-.react-select-box-option {
+.ReactSelectBox3-option {
   padding: 10px 20px;
   margin: 0;
   cursor: pointer;
@@ -143,21 +164,21 @@
   text-decoration: none;
 }
 
-.react-select-box-option:hover {
+.ReactSelectBox3-option:hover {
   color: #0493D1;
   background-color: #f4f4f4;
 }
 
-.react-select-box-option-selected {
+.ReactSelectBox3-option-selected {
   color: #CBD2D7;
 }
 
-.react-select-box-multi .react-select-box-option {
+.ReactSelectBox3-multi .ReactSelectBox3-option {
   padding-left: 42px;
   position: relative;
 }
 
-.react-select-box-multi .react-select-box-option:before {
+.ReactSelectBox3-multi .ReactSelectBox3-option:before {
   content: ' ';
   position: absolute;
   line-height: 1;
@@ -173,23 +194,23 @@
   vertical-align: middle;
 }
 
-.react-select-box-multi .react-select-box-option-selected:before {
+.ReactSelectBox3-multi .ReactSelectBox3-option-selected:before {
   content: '✓';
 }
 
 
-.react-select-box-multi .react-select-box-option-selected {
+.ReactSelectBox3-multi .ReactSelectBox3-option-selected {
   color: #1F3344;
 }
 
-.react-select-box-option:focus,
-.react-select-box-option-focused {
+/* .ReactSelectBox3-option:focus, */
+.ReactSelectBox3-option-focused {
   color: #0493D1;
   outline: 0;
   background-color: #DDE2E5;
 }
 
-.react-select-box-close {
+.ReactSelectBox3-close {
   color: #0493D1;
   text-transform: uppercase;
   background-color: transparent;
@@ -203,16 +224,19 @@
   outline: none;
 }
 
-.react-select-box-close:hover,
-.react-select-box-close:focus {
+.ReactSelectBox3-close:hover,
+.ReactSelectBox3-close:focus {
   text-decoration: underline;
 }
 
-.react-select-box-empty .react-select-box-close {
+.ReactSelectBox3-empty .ReactSelectBox3-close {
   color: #CBD2D7;
 }
 
-.react-select-box-native {
+/* dev */
+.ReactSelectBox3-native-inputs {
   position: absolute;
   left: -99999em;
 }
+
+
