@@ -3,7 +3,7 @@
   "version": "2.0.1",
   "homepage": "https://github.com/instructure-react/react-select-box",
   "authors": [
-    "Ethan Vizitei <ethan@instructure.com>"
+    "Ethan Vizitei <ethan@instructure.com>",
     "Brent Burgoyne <bburgoyne@instructure.com"
   ],
   "description": "An accessible select box component for React.",
