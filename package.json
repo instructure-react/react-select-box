@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "build": "NODE_ENV=production webpack lib/select-box.js dist/react-select-box.js && NODE_ENV=production webpack lib/select-box.js dist/react-select-box.min.js --optimize-minimize",
     "test": "node_modules/karma/bin/karma start",
     "start": "gulp serve"
   },
@@ -32,6 +33,7 @@
     "gulp-cached": "^1.0.1",
     "gulp-connect": "^2.0.6",
     "gulp-eslint": "^0.1.8",
+    "jsx-loader": "^0.13.2",
     "karma": "^0.12.21",
     "karma-chai": "^0.1.0",
     "karma-firefox-launcher": "^0.1.3",
