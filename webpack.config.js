@@ -5,16 +5,10 @@ module.exports = {
     libraryTarget: 'umd'
   },
 
-  externals: [
-    {
-      "react": {
-        root: "React",
-        commonjs2: "react",
-        commonjs: "react",
-        amd: "react"
-      }
-    }
-  ],
+  externals: {
+    react: 'React',
+    'react/addons': 'React'
+  },
   debug: true,
   devtool: '#source-map',
   module: {
