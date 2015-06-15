@@ -6,8 +6,8 @@ module.exports = {
   },
 
   externals: {
-    react: 'React',
-    'react/addons': 'React'
+    react: 'react',
+    'react/addons': 'react'
   },
   debug: true,
   devtool: '#source-map',
