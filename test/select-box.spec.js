@@ -1,11 +1,18 @@
-var SelectBox = require('../lib/select-box')
 var React = require('react/addons')
 var TestUtils = React.addons.TestUtils
+var SelectBox = React.createFactory(require('../lib/select-box'))
 
 describe('SelectBox component', function () {
   
   var selectBox
   var options
+
+  function scryRenderedDOMComponentsWithClass(name) {
+    return TestUtils.scryRenderedDOMComponentsWithClass(
+      selectBox,
+      name
+    )
+  }
 
   beforeEach(function () {
     testOptions = [
@@ -28,20 +35,14 @@ describe('SelectBox component', function () {
   })
   
   it('should render the label when no value is selected', function () {
-    var label = TestUtils.scryRenderedDOMComponentsWithClass(
-      selectBox,
-      'react-select-box-label'
-    )
+    var label = scryRenderedDOMComponentsWithClass('react-select-box-label')
     label.should.have.length(1)
     label[0].getDOMNode().textContent.should.equal(selectBox.props.label)
   })
 
   it('should render the label for the selected value', function (done) {
     selectBox.setProps({ value: testOptions[0].value }, function () {
-      var label = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-label'
-      )
+      var label = scryRenderedDOMComponentsWithClass('react-select-box-label')
       label.should.have.length(1)
       label[0].getDOMNode().textContent.should.equal(testOptions[0].label)
       done()
@@ -50,10 +51,7 @@ describe('SelectBox component', function () {
 
   it('should not render the clear button with no value selected', function (done) {
     selectBox.setProps({ value: null }, function () {
-      var clear = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-clear'
-      )
+      var clear = scryRenderedDOMComponentsWithClass('react-select-box-clear')
       clear.should.have.length(0)
       done()
     })
@@ -62,10 +60,7 @@ describe('SelectBox component', function () {
 
   it('should render the clear button with a selected value', function (done) {
     selectBox.setProps({ value: testOptions[0].value }, function () {
-      var clear = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-clear'
-      )
+      var clear = scryRenderedDOMComponentsWithClass('react-select-box-clear')
       clear.should.have.length(1)
       done()
     })
@@ -73,10 +68,7 @@ describe('SelectBox component', function () {
 
   it('should add hidden class to options when state.open is false', function (done) {
     selectBox.setState({ open: false }, function () {
-      var options = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-options'
-      )
+      var options = scryRenderedDOMComponentsWithClass('react-select-box-options')
       options.should.have.length(1)
       options[0].getDOMNode().className.should.match(/hidden/)
       done()
@@ -85,10 +77,7 @@ describe('SelectBox component', function () {
 
   it('should render options', function (done) {
     selectBox.setState({ open: true }, function () {
-      var options = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-options'
-      )
+      var options = scryRenderedDOMComponentsWithClass('react-select-box-options')
       options.should.have.length(1)
       done()
     })
@@ -96,10 +85,7 @@ describe('SelectBox component', function () {
 
   it('should show an option for each option in props.options', function (done) {
     selectBox.setState({ open: true }, function () {
-      var options = TestUtils.scryRenderedDOMComponentsWithClass(
-        selectBox,
-        'react-select-box-option'
-      )
+      var options = scryRenderedDOMComponentsWithClass('react-select-box-option')
       options.should.have.length(options.length)
       options.forEach(function (option, i) {
         option.getDOMNode().textContent.should.equal(testOptions[i].label)
