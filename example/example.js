@@ -1,9 +1,9 @@
 var React = require('react')
 var SelectBox = React.createFactory(require('../lib/select-box'))
 
-var div = React.createElement.bind(null,'div')
-var option = React.createElement.bind(null,'option')
-var h1 = React.createElement.bind(null,'h1')
+var div = React.createFactory('div')
+var option = React.createFactory('option')
+var h1 = React.createFactory('h1')
 
 var Example = React.createFactory(React.createClass({displayName: 'Example',
   getInitialState: function () {
