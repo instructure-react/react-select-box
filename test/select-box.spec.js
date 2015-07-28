@@ -94,7 +94,7 @@ describe('SelectBox component', function () {
     })
   })
 
-  describe("Toggle options list open/closed when select box is clicked", function() {
+  describe("Toggle options list open/closed", function() {
     var selectBoxElement
 
     beforeEach(function() {
@@ -104,7 +104,7 @@ describe('SelectBox component', function () {
         )
     })
 
-    it('should close options list when select box is clicked on (if options list is already open)', function(done) {
+    it('should close an open options list when select box is clicked', function(done) {
       // Start with open options list
       selectBox.setState({ open: true }, function () {
         // Simulate a click on the select box (element with class tag `react-select-box`)
@@ -119,7 +119,7 @@ describe('SelectBox component', function () {
       })
     })
 
-    it('should open options list when select box is clicked on (if options list is closed)', function(done) {
+    it('should open a closed options list when select box is clicked', function(done) {
       // Start with closed options list
       selectBox.setState({ open: false }, function () {
         // Simulate a click on the select box (element with class tag `react-select-box`)
@@ -127,6 +127,38 @@ describe('SelectBox component', function () {
         // Re-render component (to ensure state change occured)
         selectBox.forceUpdate(function() {
           // Check if it is open
+          selectBox.state.open.should.equal(true)
+          // End test
+          done()
+        })
+      })
+    })
+
+    it('should close an open select box when focused and ESC key is pressed', function(done) {
+      selectBox.setState({ open: true }, function () {
+        // Simulate focus event on selectBox
+        TestUtils.Simulate.focus(selectBoxElement)
+        // Simulate pressing escape key
+        TestUtils.Simulate.keyDown(selectBoxElement, {keyCode: 27, which: 27})
+        // Re-render component (to ensure state change occured)
+        selectBox.forceUpdate(function() {
+          // Check that it is closed
+          selectBox.state.open.should.equal(false)
+          // End test
+          done()
+        })
+      })
+    })
+
+    it('should open a closed select box when focused and ENTER key is pressed', function(done) {
+      selectBox.setState({ open: false }, function () {
+        // Simulate focus event on selectBox
+        TestUtils.Simulate.focus(selectBoxElement)
+        // Simulate pressing down arrow key
+        TestUtils.Simulate.keyDown(selectBoxElement, {keyCode: 40, which: 40})
+        // Re-render component (to ensure state change occured)
+        selectBox.forceUpdate(function() {
+          // Check that it is open
           selectBox.state.open.should.equal(true)
           // End test
           done()
