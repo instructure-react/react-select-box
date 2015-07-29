@@ -183,13 +183,14 @@ describe('SelectBox component', function () {
   })
 
   describe('Multi-select mode', function () {
+    var testValues
 
     beforeEach(function () {
+      testValues = [testOptions[0].value, testOptions[1].value];
       selectBox = makeSelectBox(true)
     })
 
     it('should render the label for muliple selected values', function (done) {
-      var testValues = [testOptions[0].value, testOptions[1].value];
       var expectedLabel = testOptions[0].label + ', ' + testOptions[1].label;
 
       selectBox.setProps({ value: testValues }, function () {
@@ -197,6 +198,19 @@ describe('SelectBox component', function () {
         label.should.have.length(1)
         label[0].getDOMNode().textContent.should.equal(expectedLabel)
         done()
+      })
+    })
+
+    it('should show all selected options', function (done) {
+      selectBox.setProps({ value: testValues }, function () {
+        selectBox.setState({ open: true }, function () {
+          selectBox.forceUpdate(function() {
+            var label = scryRenderedDOMComponentsWithClass('react-select-box-option-selected')
+            label.should.have.length(testValues.length)
+            selectBox.state.open.should.equal(true)
+            done()
+          })
+        })
       })
     })
 
