@@ -10,7 +10,6 @@
     "quotes": 0,
     "curly": 0,
     "new-cap": 0,
-    "no-comma-dangle": 2,
     "no-cond-assign": 0,
     "no-underscore-dangle": 0,
     "no-console": 2,
