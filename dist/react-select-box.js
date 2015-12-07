@@ -7,7 +7,7 @@
 		exports["ReactSelectBox"] = factory(require("react"));
 	else
 		root["ReactSelectBox"] = factory(root["react"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -54,15 +54,23 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	(function webpackMissingModule() { throw new Error("Cannot find module \"./example/main.js\""); }());
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict"
 	
-	var React = __webpack_require__(1)
+	var React = __webpack_require__(2)
 	
 	var div = React.createElement.bind(null, 'div')
 	var button = React.createElement.bind(null, 'button')
 	var a = React.createElement.bind(null, 'a')
 	var select = React.createElement.bind(null, 'select')
-	var option = React.createElement.bind(null ,'option')
+	var option = React.createElement.bind(null, 'option')
 	var label = React.createElement.bind(null, 'label')
 	
 	var idInc = 0
@@ -96,7 +104,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  getDefaultProps: function () {
 	    return {
-	      closeText: 'Close'
+	      closeText: 'Close',
+	      isClearable: true
 	    }
 	  },
 	
@@ -261,11 +270,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  label: function () {
 	    var selected = this.options()
-	      .filter(function (option) {
-	        return this.isSelected(option.value)
+	      .filter(function (opt) {
+	        return this.isSelected(opt.value)
 	      }.bind(this))
-	      .map(function (option) {
-	        return option.label
+	      .map(function (opt) {
+	        return opt.label
 	      })
 	    return selected.length > 0 ? selected.join(', ') : this.props.label
 	  },
@@ -276,10 +285,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  options: function () {
 	    var options = []
-	    React.Children.forEach(this.props.children, function (option) {
+	    React.Children.forEach(this.props.children, function (opt) {
 	      options.push({
-	        value: option.props.value,
-	        label: option.props.children
+	        value: opt.props.value,
+	        label: opt.props.children
 	      })
 	    })
 	    return options
@@ -397,32 +406,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	    )
 	  },
 	
-	  renderOption: function (option, i) {
+	  renderOption: function (opt, i) {
 	    var className = 'react-select-box-option'
 	    if (i === this.state.focusedIndex) {
 	      className += ' react-select-box-option-focused'
 	    }
-	    if (this.isSelected(option.value)) {
+	    if (this.isSelected(opt.value)) {
 	      className += ' react-select-box-option-selected'
 	    }
 	    return a(
 	      {
 	        id: this.state.id + '-' + i,
 	        href: '#',
-	        onClick: this.handleChange(option.value),
+	        onClick: this.handleChange(opt.value),
 	        onMouseDown: this.handleMouseDown,
 	        className: className,
 	        tabIndex: -1,
-	        key: option.value,
+	        key: opt.value,
 	        onBlur: this.handleBlur,
 	        onFocus: this.handleFocus
 	      },
-	      option.label
+	      opt.label
 	    )
 	  },
 	
 	  renderClearButton: function () {
-	    if (this.hasValue()) {
+	    if (this.hasValue() && this.props.isClearable) {
 	      return button({
 	        className: 'react-select-box-clear',
 	        'aria-hidden': true,
@@ -448,10 +457,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/* 2 */
+/***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ }
 /******/ ])
