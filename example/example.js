@@ -9,6 +9,7 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
   getInitialState: function () {
     return {
       color: null,
+      color2: 'red',
       colors: []
     }
   },
@@ -17,6 +18,9 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
   },
   handleMultiChange: function (colors) {
     this.setState({ colors: colors })
+  },
+  handleNoClearChange: function (color) {
+    this.setState({ color2: color })
   },
   render: function () {
     return(
@@ -45,6 +49,22 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
             multiple: true
           },
           option({value: 'red'}, 'Red'),
+          option({value: 'green'}, 'Green'),
+          option({value: 'blue'}, 'Blue'),
+          option({value: 'black'}, 'Black'),
+          option({value: 'orange'}, 'Orange'),
+          option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
+        ),
+        h1(null, "No Clear Example"),
+        SelectBox(
+          {
+            label: "Favorite Color",
+            className: 'my-example-select-box',
+            onChange: this.handleNoClearChange,
+            value: this.state.color2,
+            isClearable: false
+          },
+          option({key: 'red', value: 'red'}, 'Red'),
           option({value: 'green'}, 'Green'),
           option({value: 'blue'}, 'Blue'),
           option({value: 'black'}, 'Black'),
