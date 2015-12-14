@@ -7,7 +7,7 @@
 		exports["ReactSelectBox"] = factory(require("react"));
 	else
 		root["ReactSelectBox"] = factory(root["react"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -54,9 +54,17 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	(function webpackMissingModule() { throw new Error("Cannot find module \"./example/main.js\""); }());
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict"
 	
-	var React = __webpack_require__(1)
+	var React = __webpack_require__(2)
 	
 	var div = React.createElement.bind(null, 'div')
 	var button = React.createElement.bind(null, 'button')
@@ -96,7 +104,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  getDefaultProps: function () {
 	    return {
-	      closeText: 'Close'
+	      closeText: 'Close',
+	      clearText: 'Clear'
 	    }
 	  },
 	
@@ -424,8 +433,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  renderClearButton: function () {
 	    if (this.hasValue()) {
 	      return button({
+	        'aria-label': this.props.clearText,
 	        className: 'react-select-box-clear',
-	        'aria-hidden': true,
 	        onClick: this.handleClear
 	      })
 	    }
@@ -448,10 +457,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/* 2 */
+/***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ }
 /******/ ])
