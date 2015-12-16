@@ -20,7 +20,7 @@ module.exports = function(config) {
         colors: true
       }
     },
-    reporters: [ 'progress' ],
+    reporters: [ 'mocha' ],
     port: 9876,
     colors: true,
     autoWatch: true,
@@ -30,6 +30,7 @@ module.exports = function(config) {
     plugins: [
       require("karma-mocha"),
       require("karma-chai"),
+      require("karma-mocha-reporter"),
       require("karma-firefox-launcher"),
       require("karma-webpack")
     ]
