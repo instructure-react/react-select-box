@@ -105,7 +105,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  getDefaultProps: function () {
 	    return {
 	      closeText: 'Close',
-	      clearText: 'Clear'
+	      clearText: 'Remove selection',
+	      onClear: function() { },
 	    }
 	  },
 	
@@ -435,7 +436,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return button({
 	        'aria-label': this.props.clearText,
 	        className: 'react-select-box-clear',
-	        onClick: this.handleClear
+	        onClick: function(e) {
+	          this.props.onClear(e);
+	          this.handleClear(e);
+	        }.bind(this)
 	      })
 	    }
 	  },
