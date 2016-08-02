@@ -4,6 +4,10 @@
 
 An accessible select box component for React.
 
+Improvements:
+* allow each Option to have a distinct style (using className)
+* render each selected Option with a distinct style (using className)
+
 ## Demo
 
 [http://instructure-react.github.io/react-select-box/](http://instructure-react.github.io/react-select-box/)
