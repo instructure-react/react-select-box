@@ -107,7 +107,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            label: "Favorite Colors",
 	            onChange: this.handleMultiChange,
 	            value: this.state.colors,
-	            multiple: true
+	            multiple: true,
+	            scrollOnFocus: false,
 	          },
 	          option({value: 'red'}, 'Red'),
 	          option({value: 'green'}, 'Green'),
@@ -20891,7 +20892,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  getDefaultProps: function () {
 	    return {
 	      closeText: 'Close',
-	      clearText: 'Remove selection'
+	      clearText: 'Remove selection',
+	      scrollOnFocus: true
 	    }
 	  },
 	
@@ -20991,7 +20993,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  handleOpen: function (event) {
 	    interceptEvent(event)
 	    this.setState({open: true}, function () {
-	      this.refs.menu.focus()
+	      this.props.scrollOnFocus ? this.refs.menu.focus() : null
 	    })
 	  },
 	
@@ -21127,10 +21129,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        button(
 	          {
 	            id: this.state.id,
-	            // ref: function ref(c) {
-	            //   debugger
-	            //   return this.button = c;
-	            // }.bind(this),
 	            ref: 'button',
 	            className: 'react-select-box',
 	            onClick: this.toggleOpenClose,
@@ -21183,9 +21181,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        onBlur: this.handleBlur,
 	        onFocus: this.handleFocus,
 	        'aria-hidden': true,
-	        // ref: function ref(c) {
-	        //   return this.menu = c;
-	        // }.bind(this),
 	        ref: 'menu',
 	        tabIndex: 0
 	      },
