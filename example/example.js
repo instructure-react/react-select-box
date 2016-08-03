@@ -1,4 +1,5 @@
 var React = require('react')
+var ReactDOM = require('react-dom')
 var SelectBox = React.createFactory(require('../lib/select-box'))
 
 var div = React.createElement.bind(null,'div')
@@ -42,7 +43,8 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
             label: "Favorite Colors",
             onChange: this.handleMultiChange,
             value: this.state.colors,
-            multiple: true
+            multiple: true,
+            scrollOnFocus: false,
           },
           option({value: 'red'}, 'Red'),
           option({value: 'green'}, 'Green'),
@@ -56,4 +58,4 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
   }
 }))
 
-React.render(Example(null), document.body)
+ReactDOM.render(Example(null), document.querySelector('#main'))
