@@ -8,6 +8,10 @@ Improvements:
 * allow each Option to have a distinct style (using className)
 * render each selected Option with a distinct style (using className)
 
+## Screenshots
+
+![screenshot](https://github.com/dungsaga/react-select-box/raw/gh-pages/screenshots/Notable-operating-systems.png)
+
 ## Demo
 
 [http://instructure-react.github.io/react-select-box/](http://instructure-react.github.io/react-select-box/)
