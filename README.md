@@ -15,6 +15,81 @@ An accessible select box component for React.
 $ npm install react-select-box --save
 ```
 
+## Usage
+To add a single select box:
+
+```JavaScript
+import React from 'react';
+import SelectBox from 'react-select-box';
+
+var option = React.createElement.bind(null, 'option');
+
+export default class Example extends React.Component {
+
+	constructor() {
+		super();
+		this.state = {
+			color: null
+		};
+	}
+	
+	handleChange(color) {
+		this.setState({color});
+	}
+	
+	render() {
+		return (
+			<div>
+				<SelectBox label="Favorite Color" onChange={this.handleChange.bind(this)} value={this.state.color}>
+					<option value={'red'}>Red</option>
+					<option value={'green'}>Green</option>
+					<option value={'blue'}>Blue</option>
+				</SelectBox>
+			</div>
+		);
+	}
+
+}
+
+```
+
+To add a multi select box:
+
+```JavaScript
+import React from 'react';
+import SelectBox from 'react-select-box';
+
+var option = React.createElement.bind(null, 'option');
+
+export default class Example extends React.Component {
+
+	constructor() {
+		super();
+		this.state = {
+			colors: []
+		};
+	}
+	
+	handleMultiChange(colors) {
+		this.setState({colors});
+	}
+	
+	render() {
+		return (
+			<div>
+				<SelectBox label="Favorite Colors" onChange={this.handleMultiChange.bind(this)} value={this.state.colors} multiple={true}>
+					<option value={'red'}>Red</option>
+					<option value={'green'}>Green</option>
+					<option value={'blue'}>Blue</option>
+				</SelectBox>
+			</div>
+		);
+	}
+
+}
+
+```
+
 ## Development
 
 ```bash
