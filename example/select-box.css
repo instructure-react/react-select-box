@@ -216,3 +216,15 @@
   position: absolute;
   left: -99999em;
 }
+
+.react-select-box-badge {
+    float: right;
+    background: #e0e0e0;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: #888;
+    font-size: 10px;
+    line-height: 1;
+    margin: -2px 0 0 0px;
+}
