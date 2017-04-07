@@ -1,11 +1,14 @@
 var React = require('react')
+var ReactDom = require('react-dom');
 var SelectBox = React.createFactory(require('../lib/select-box'))
 
-var div = React.createElement.bind(null,'div')
-var option = React.createElement.bind(null,'option')
-var h1 = React.createElement.bind(null,'h1')
+var container = document.createElement('div')
+var div = React.createElement.bind(null, 'div')
+var option = React.createElement.bind(null, 'option')
+var h1 = React.createElement.bind(null, 'h1')
 
-var Example = React.createFactory(React.createClass({displayName: 'Example',
+var Example = React.createFactory(React.createClass({
+  displayName: 'Example',
   getInitialState: function () {
     return {
       color: null,
@@ -19,8 +22,8 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
     this.setState({ colors: colors })
   },
   render: function () {
-    return(
-      div({className: "example"},
+    return (
+      div({ className: "example" },
         h1(null, "Select Box Example"),
         SelectBox(
           {
@@ -29,12 +32,12 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
             onChange: this.handleChange,
             value: this.state.color
           },
-          option({key: 'red', value: 'red'}, 'Red'),
-          option({value: 'green'}, 'Green'),
-          option({value: 'blue'}, 'Blue'),
-          option({value: 'black'}, 'Black'),
-          option({value: 'orange'}, 'Orange'),
-          option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
+          option({ key: 'red', value: 'red' }, 'Red'),
+          option({ value: 'green' }, 'Green'),
+          option({ value: 'blue' }, 'Blue'),
+          option({ value: 'black' }, 'Black'),
+          option({ value: 'orange' }, 'Orange'),
+          option({ value: 'greenish' }, 'Light greenish with a little bit of yellow')
         ),
         h1(null, "Multi Select Example"),
         SelectBox(
@@ -44,16 +47,17 @@ var Example = React.createFactory(React.createClass({displayName: 'Example',
             value: this.state.colors,
             multiple: true
           },
-          option({value: 'red'}, 'Red'),
-          option({value: 'green'}, 'Green'),
-          option({value: 'blue'}, 'Blue'),
-          option({value: 'black'}, 'Black'),
-          option({value: 'orange'}, 'Orange'),
-          option({value: 'greenish'}, 'Light greenish with a little bit of yellow')
+          option({ value: 'red' }, 'Red'),
+          option({ value: 'green' }, 'Green'),
+          option({ value: 'blue' }, 'Blue'),
+          option({ value: 'black' }, 'Black'),
+          option({ value: 'orange' }, 'Orange'),
+          option({ value: 'greenish' }, 'Light greenish with a little bit of yellow')
         )
       )
     )
   }
 }))
 
-React.render(Example(null), document.body)
+document.body.appendChild(container)
+ReactDom.render(Example(null), container)
