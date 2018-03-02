@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./example/main.js",
+  entry: "./dist/react-select-box.js",
   output: {
     library: 'ReactSelectBox',
     libraryTarget: 'umd'

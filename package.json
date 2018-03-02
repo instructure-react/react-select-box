@@ -1,6 +1,6 @@
 {
-  "name": "react-select-box",
-  "version": "3.0.1",
+  "name": "react-select-box-patched",
+  "version": "1.0.1",
   "description": "An accessible select box component for React.",
   "main": "lib/select-box.js",
   "directories": {
@@ -20,12 +20,12 @@
     "component",
     "select"
   ],
-  "author": "Brent Burgoyne",
+  "author": "Brent Burgoyne with tweak from Andre Behrens",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/instructure/react-select-box/issues"
+    "url": "https://github.com/mrandre/react-select-box-patched/issues"
   },
-  "homepage": "https://github.com/instructure/react-select-box",
+  "homepage": "https://github.com/mrandre/react-select-box-patched",
   "devDependencies": {
     "browserify": "^5.9.1",
     "chai": "^1.9.1",
